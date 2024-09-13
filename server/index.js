@@ -2,7 +2,6 @@ const express = require("express");
 const userRouter = require("./routes/userRoutes.js");
 const adminRouter = require("./routes/adminRoutes.js");
 const configs = require("./config/configs.js");
-const db = require("./client/db");
 const app = express();
 
 const env = "local";

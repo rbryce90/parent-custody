@@ -1,2 +1,10 @@
-INSERT INTO users(name, email, PASSWORD, phone_number, role)
-    VALUES ($1, $2, $3, $4, "user");
+INSERT INTO users(name, email, password, phone_number)
+VALUES ($1,
+        $2,
+        $3,
+        $4) RETURNING id,
+                      name,
+                      email,
+                      phone_number,
+                      role;
+

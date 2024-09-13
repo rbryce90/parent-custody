@@ -7,6 +7,9 @@ class UserController {
   async createUser(user) {
     await this.userRepository.createUser(user);
   }
+  async loginIn(creds) {
+    return await this.userRepository.validateAndGetUser(creds);
+  }
 }
 
 module.exports = UserController;
