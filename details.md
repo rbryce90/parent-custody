@@ -9,12 +9,13 @@ email: campise.daniel@gmail.com
 
 ### Person
 
-Name
-Age
-email
-phone number
-date of creation  
-is reviewed?
+    Name
+    Age
+    email
+    phone number
+    date of creation
+    is reviewed?
+    role
 
 ### Interference of child custody
 

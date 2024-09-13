@@ -2,10 +2,12 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./login.css";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
     <div className="login-form">
+      <h2>Login</h2>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -19,6 +21,13 @@ export default function Login() {
           Submit
         </Button>
       </Form>
+
+      <div className="sign-up">
+        <p>Don't have an account? </p>{" "}
+        <Link style={{ textDecoration: "none" }} to="create-profile">
+          Sign Up
+        </Link>
+      </div>
     </div>
   );
 }
