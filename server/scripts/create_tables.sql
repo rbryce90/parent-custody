@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS interferences;
 
+DROP TABLE IF EXISTS documents;
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
@@ -21,5 +23,13 @@ CREATE TABLE interferences(
     law_enforcement_contacted boolean DEFAULT FALSE, -- Boolean indicating if law enforcement was contacted
     criminal_report boolean DEFAULT FALSE, -- Boolean indicating if a criminal report was filed
     user_id integer REFERENCES users(id) -- Foreign key reference to the users table
+);
+
+CREATE TABLE documents(
+    id serial PRIMARY KEY, -- Unique identifier for the document record
+    user_id integer NOT NULL REFERENCES users(id), -- Foreign key to the users table
+    document_url text NOT NULL, -- URL of the document file in S3
+    upload_date timestamp DEFAULT CURRENT_TIMESTAMP, -- Date and time when the document was uploaded
+    description text -- Optional field for additional information about the document
 );
 
