@@ -9,15 +9,27 @@ router.post("/register", async (req, res) => {
     await userController.createUser(req.body);
     res.send("User Created");
   } catch (err) {
+    console.log(err);
     res.status(500).send(new ErrorResponse(500, err.message));
   }
 });
 
 router.post("/login", async (req, res) => {
   try {
-    res.send(await userController.loginIn(req.body));
+    const user = await userController.loginIn(req.body);
+    res.send(user);
   } catch (err) {
-    res.status(500).send(new ErrorResponse(404, "Unauthorized"));
+    res.status(403).send(new ErrorResponse(403, "Unauthorized"));
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const user = await userController.getUserById(id);
+    res.send(user);
+  } catch (err) {
+    res.status(500).send(new ErrorResponse(500, err.message));
   }
 });
 

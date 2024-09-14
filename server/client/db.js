@@ -8,7 +8,12 @@ let dbInstance;
 
 module.exports = async () => {
   if (!dbInstance) {
-    dbInstance = await massive({ connectionString });
+    try {
+      dbInstance = await massive({ connectionString });
+      console.log("db connected");
+    } catch (err) {
+      console.log("error connecting to massive: ", err);
+    }
   }
   return dbInstance;
 };
