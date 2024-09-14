@@ -3,6 +3,7 @@ import DocumentUpdate from "../../components/documentUpload/DocumentUpdate";
 import UserDetails from "../../components/userDetails/UserDetails";
 import { getUserById } from "../../service/service";
 import { Form } from "react-bootstrap";
+import InterferenceTable from "../../components/interferenceTable/InterferenceTable";
 
 function UserPage({ userId, setSelectedUser, isAdmin }) {
   const [userData, setUserData] = useState(null);
@@ -33,6 +34,9 @@ function UserPage({ userId, setSelectedUser, isAdmin }) {
       <h1>Welcome {userData?.name} </h1>
       <hr />
       <UserDetails userData={userData} />
+      <hr />
+      <InterferenceTable />
+      <hr />
       <DocumentUpdate />
     </div>
   );
