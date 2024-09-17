@@ -2,7 +2,7 @@
 const massive = require("massive");
 const configs = require("../config/configs");
 // Database connection details
-const connectionString = configs["local"].db.connectionString;
+const connectionString = configs.db.connectionString;
 // Initialize Massive.js
 let dbInstance;
 

@@ -1,6 +1,6 @@
 const express = require("express");
-const ErrorResponse = require("../model/errorModel");
 const router = express.Router();
+const ErrorResponse = require("../model/errorModel");
 const UserController = require("../controller/userController");
 // router.use(authMiddleware);
 const userController = new UserController();

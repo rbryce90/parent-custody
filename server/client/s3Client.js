@@ -1,7 +1,8 @@
 const AWS = require("aws-sdk");
 const configs = require("../config/configs");
-
-const s3Configs = configs["local"].s3;
+require("dotenv").config();
+const env = process.env.ENV || "local";
+const s3Configs = configs[env].s3;
 
 const s3 = new AWS.S3({
   endpoint: s3Configs.endpoint,

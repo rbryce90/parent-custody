@@ -1,3 +1,6 @@
+require("dotenv").config();
+const env = process.env.ENV || "local";
+
 const configs = {
   local: {
     s3: {
@@ -14,4 +17,5 @@ const configs = {
     port: 4000,
   },
 };
-module.exports = configs;
+
+module.exports = configs[env || "local"];
