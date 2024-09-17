@@ -1,3 +1,6 @@
+require("dotenv").config();
+const env = process.env.ENV || "local";
+
 const configs = {
   local: {
     s3: {
@@ -6,6 +9,7 @@ const configs = {
       secretAccessKey: "minioadmin", // Your MinIO secret key
       s3ForcePathStyle: true, // Required for MinIO
       signatureVersion: "v4", // Required for MinIO
+      region: "us-east-1", // You need to specify the region
     },
     db: {
       connectionString:
@@ -14,4 +18,5 @@ const configs = {
     port: 4000,
   },
 };
-module.exports = configs;
+
+module.exports = configs[env || "local"];

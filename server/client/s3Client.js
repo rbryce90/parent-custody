@@ -1,14 +1,16 @@
 const AWS = require("aws-sdk");
 const configs = require("../config/configs");
+require("dotenv").config();
 
-const s3Configs = configs["local"].s3;
+const creds = {
+  endpoint: configs.s3.endpoint,
+  accessKeyId: configs.s3.accessKeyId,
+  secretAccessKey: configs.s3.secretAccessKey,
+  s3ForcePathStyle: configs.s3.s3ForcePathStyle,
+  signatureVersion: configs.s3.signatureVersion,
+  region: configs.s3.region,
+};
 
-const s3 = new AWS.S3({
-  endpoint: s3Configs.endpoint,
-  accessKeyId: s3Configs.accessKeyId,
-  secretAccessKey: s3Configs.secretAccessKey,
-  s3ForcePathStyle: s3Configs.s3ForcePathStyle,
-  signatureVersion: s3Configs.signatureVersion,
-});
+const s3 = new AWS.S3(creds);
 
 module.exports = s3;
