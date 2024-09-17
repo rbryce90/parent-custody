@@ -27,8 +27,7 @@ function UserPage({ userId, setSelectedUser, isAdmin }) {
         <Form.Check
           type="checkbox"
           label="Mark Reviewed"
-          checked={userData.isReviewed}
-          onClick={() => userData.isReviewed}
+          checked={userData?.isReviewed}
         />
       ) : null}
       <h1>Welcome {userData?.name} </h1>
