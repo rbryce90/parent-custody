@@ -21,6 +21,7 @@ app.use((err, req, res, next) => {
 app.use("/api/document", documentRouter);
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
+
 app.use((req, res, next) => {
   res.status(404).json({ error: "Not Found" });
 });

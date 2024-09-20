@@ -4,7 +4,13 @@ module.exports = class DocumentController {
   constructor() {
     this.s3Accessor = s3Accessor;
   }
-  async getAllDocuments() {
-    return await this.s3Accessor.getAllDocuments();
+  async getAllBuckets() {
+    return await this.s3Accessor.getAllBuckets();
+  }
+  async createBucket(bucketName) {
+    return await this.s3Accessor.createBucket(bucketName);
+  }
+  async uploadPdf() {
+    return await this.s3Accessor.uploadPdf();
   }
 };
